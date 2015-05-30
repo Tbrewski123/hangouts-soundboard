@@ -38,6 +38,7 @@
 -->
 </style>
 <body>
+<div id="drop_zone">
 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
@@ -45,29 +46,29 @@
 
 <hr>
 <div id="buttonsDiv"></div>
-
-<div id="drop_zone">Drop files here</div>
-<output id="list"></output>
+</div>
 
 <script>
 	var retVal = '<p>';
 soundNames = ["Roar","Bear","Lightning","Spell 1","Spell 2","Mystic aura","Turn down"];
 
-  for (i = 0; i < soundNames.length; i++) { 
-  retVal += '<input class="button" type="button" value="' + soundNames[i] + '" id="' + soundNames[i] + '" '; 
-	  retVal += 'onClick="playSound(' + i + ')"/>'
-  retVal += '<br><br>';
-    }
-    retVal += '</p>'
-    var div = document.getElementById('buttonsDiv');
-    div.innerHTML = retVal;
+//for (i = 0; i < soundNames.length; i++) { }
 
 sounds = []
-for (i = 0; i < soundNames.length; i++) { 
-  myURL = "http://www.maxradin.com/soundboard/sounds/" + soundNames[i] + ".wav";
-  sounds.push(gapi.hangout.av.effects.createAudioResource(
-               myURL).createSound({loop: false, localOnly: false}));
-	    }
+//for (i = 0; i < soundNames.length; i++) { 
+//  myURL = "http://www.maxradin.com/soundboard/sounds/" + soundNames[i] + ".wav";
+//  sounds.push(gapi.hangout.av.effects.createAudioResource(
+//               myURL).createSound({loop: false, localOnly: false}));
+//	    }
+
+function addButton(name) {
+    var div = document.getElementById('buttonsDiv');
+    retVal = div.innerHTML;
+    retVal += '<input class="button" type="button" value="' + name + '" id="' + name + '" '; 
+	  retVal += 'onClick="playSound(' + (sounds.length-1) + ')"/>'
+    retVal += '<br><br>';
+    div.innerHTML = retVal;
+}
 
 function playSound(i) {
   sounds[i].play();
@@ -80,22 +81,16 @@ function playSound(i) {
     var files = evt.dataTransfer.files; // FileList object.
 
     // files is a FileList of File objects. List some properties.
-    var output = [];
     for (var i = 0, f; f = files[i]; i++) {
-      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</li>');
       var reader = new FileReader();
+      reader.filename = f.name
       reader.onload = function(e){
-        sounds[0] = (gapi.hangout.av.effects.createAudioResource(
-                     e.target.result).createSound({loop: false, localOnly: false}));
-sounds[0].play()
-console.log(e.target.result)
+        sounds.push((gapi.hangout.av.effects.createAudioResource(
+                     e.target.result).createSound({loop: false, localOnly: false})));
+      addButton(e.target.filename)
       }
       reader.readAsDataURL(f)
     }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
   }
 
   function handleDragOver(evt) {
