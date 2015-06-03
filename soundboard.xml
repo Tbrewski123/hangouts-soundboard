@@ -38,11 +38,11 @@
 -->
 </style>
 <body>
-<div id="drop_zone">
+<div id="drop_zone" style="background-color: #EEEEEE; height: 100%; width: 100%">
 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-<h3>Hangout Soundboard</h3>
+<h3 style="pointer-events: none">Hangout Soundboard</h3>
 
 <hr>
 <div id="buttonsDiv"></div>
@@ -91,6 +91,7 @@ function playSound(i) {
       }
       reader.readAsDataURL(f)
     }
+    document.getElementById("drop_zone").style.backgroundColor = "#EEEEEE"
   }
 
   function handleDragOver(evt) {
@@ -99,9 +100,19 @@ function playSound(i) {
     evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
   }
 
+  function handleDragEnter(evt) {
+    document.getElementById("drop_zone").style.backgroundColor = "#CCFFCC"
+  }
+
+  function handleDragLeave(evt) {
+    document.getElementById("drop_zone").style.backgroundColor = "#EEEEEE"
+  }
+
   // Setup the dnd listeners.
   var dropZone = document.getElementById('drop_zone');
   dropZone.addEventListener('dragover', handleDragOver, false);
+  dropZone.addEventListener('dragenter', handleDragEnter, false);
+  dropZone.addEventListener('dragleave', handleDragLeave, false);
   dropZone.addEventListener('drop', handleFileSelect, false);
 
 function init() {
