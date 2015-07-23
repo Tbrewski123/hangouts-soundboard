@@ -1,54 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
-<!-- Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *	
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License
--->
-	<ModulePrefs title="Hangout Soundboard">
-		<Require feature="rpc" />
-		<Require feature="views" />
-		<Require feature="locked-domain" />
-	</ModulePrefs>
-	<Content type="html"><![CDATA[     
-
-
-<html>
-<style type="text/css">
-<!--
-.button {
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-  background: -moz-linear-gradient(top, #fff, #ddd);  
-  border: 1px solid #bbb;
-}
-
-.button:active {
-	background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#333)); 
-	background: -moz-linear-gradient(bottom, #ddd, #aaa); }
-
--->
-</style>
-<body>
-<div id="drop_zone" style="background-color: #EEEEEE; height: 100%; width: 100%">
-
-<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
-
-<h3 style="pointer-events: none">Hangout Soundboard</h3>
-
-<hr>
-<div id="buttonsDiv"></div>
-</div>
-
-<script>
 	var retVal = '<p>';
 soundNames = ["Roar","Bear","Lightning","Spell 1","Spell 2","Mystic aura","Turn down"];
 
@@ -134,9 +83,3 @@ function init() {
 
 // Wait for gadget to load.                                                       
 gadgets.util.registerOnLoadHandler(init);
-</script>
-</body>
-]]>
-</Content>
-</Module>
-
