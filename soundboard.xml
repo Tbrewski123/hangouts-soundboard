@@ -64,14 +64,27 @@ sounds = []
 function addButton(name) {
     var div = document.getElementById('buttonsDiv');
     retVal = div.innerHTML;
-    retVal += '<input class="button" type="button" value="' + name + '" id="' + name + '" '; 
+    retVal += name
+    retVal += '<input class="button" type="button" value="play" id="' + name + '" '; 
 	  retVal += 'onClick="playSound(' + (sounds.length-1) + ')"/>'
+    retVal += '<input class="button" type="button" value="stop" id="' + name + '" '; 
+	  retVal += 'onClick="stopSound(' + (sounds.length-1) + ')"/>'
+    retVal += '<input class="button" type="button" value="toggle loop" id="' + name + '" '; 
+	  retVal += 'onClick="toggleSound(' + (sounds.length-1) + ')"/>'
     retVal += '<br><br>';
     div.innerHTML = retVal;
 }
 
 function playSound(i) {
   sounds[i].play();
+}
+
+function stopSound(i) {
+  sounds[i].stop();
+}
+
+function toggleSound(i) {
+  sounds[i].setLoop(!sounds[i].isLooped());
 }
 
   function handleFileSelect(evt) {
