@@ -14,11 +14,11 @@ function addButton(name) {
     var div = document.getElementById('buttonsDiv');
     retVal = div.innerHTML;
     retVal += name
-    retVal += '<input class="button" type="button" value="play" id="' + name + '" '; 
+    retVal += '<input class="button" type="button" value="&#x25B6" id="' + name + '" '; 
 	  retVal += 'onClick="playSound(' + (sounds.length-1) + ')"/>'
-    retVal += '<input class="button" type="button" value="stop" id="' + name + '" '; 
+    retVal += '<input class="button" type="button" value="&#x25FC" id="' + name + '" '; 
 	  retVal += 'onClick="stopSound(' + (sounds.length-1) + ')"/>'
-    retVal += '<input class="button" type="button" value="toggle loop" id="' + name + '" '; 
+    retVal += '<input class="button" type="button" value="&#x21BA" id="' + name + '" '; 
 	  retVal += 'onClick="toggleSound(' + (sounds.length-1) + ')"/>'
     retVal += '<br><br>';
     div.innerHTML = retVal;

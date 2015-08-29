@@ -42,10 +42,10 @@
 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-<h3 style="pointer-events: none">Hangout Soundboard</h3>
+<h3 style="pointer-events: none; padding: 20px 20px; margin: 0px 0px">Hangout Soundboard</h3>
 
-<hr>
-<div id="buttonsDiv"></div>
+<hr style="pointer-events: none; margin: 0px 0px">
+<div id="buttonsDiv" style="pointer-events: none; padding: 20px 20px"></div>
 </div>
 
 <script>
