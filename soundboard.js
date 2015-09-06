@@ -13,7 +13,7 @@ sounds = []
 function addButton(name) {
     var div = document.getElementById('buttonsDiv');
     retVal = div.innerHTML;
-    retVal += name
+    retVal += name + "<br>"
     retVal += '<input class="button" type="button" value="&#x25B6" id="' + name + '" '; 
 	  retVal += 'onClick="playSound(' + (sounds.length-1) + ')"/>'
     retVal += '<input class="button" type="button" value="&#x25FC" id="' + name + '" '; 

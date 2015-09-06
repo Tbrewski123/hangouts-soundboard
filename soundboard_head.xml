@@ -38,14 +38,17 @@
 -->
 </style>
 <body>
-<div id="drop_zone" style="background-color: #EEEEEE; height: 100%; width: 100%">
 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-<h3 style="pointer-events: none; padding: 20px 20px; margin: 0px 0px">Hangout Soundboard</h3>
+<h3 style="padding: 20px 20px; margin: 0px 0px">Hangout Soundboard</h3>
 
-<hr style="pointer-events: none; margin: 0px 0px">
-<div id="buttonsDiv" style="pointer-events: none; padding: 20px 20px"></div>
+<hr style="margin: 0px 0px">
+<div id="buttonsDiv" style="padding: 20px 20px"></div>
+<div id="drop_zone_container" style="padding: 20px 20px">
+<div id="drop_zone" style="background-color: #EEEEEE; padding: 20px 20px; border-style: dashed; border-width: thick; border-color: #999999">
+Drop sound files here
+</div>
 </div>
 
 <script>
