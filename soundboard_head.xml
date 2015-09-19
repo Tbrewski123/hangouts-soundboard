@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations under
  * the License
 -->
-	<ModulePrefs title="Hangout Soundboard">
+	<ModulePrefs title="Hangouts Soundboard">
 		<Require feature="rpc" />
 		<Require feature="views" />
 		<Require feature="locked-domain" />
@@ -41,7 +41,7 @@
 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-<h3 style="padding: 20px 20px; margin: 0px 0px">Hangout Soundboard</h3>
+<h3 style="padding: 20px 20px; margin: 0px 0px">Hangouts Soundboard</h3>
 
 <hr style="margin: 0px 0px">
 <div id="buttonsDiv" style="padding: 20px 20px"></div>
