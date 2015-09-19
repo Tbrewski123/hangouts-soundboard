@@ -12,14 +12,15 @@ sounds = []
 
 function addButton(name) {
     var div = document.getElementById('buttonsDiv');
+    i = sounds.length - 1;
     retVal = div.innerHTML;
     retVal += name + "<br>"
-    retVal += '<input class="button" type="button" value="&#x25B6" id="' + name + '" '; 
-	  retVal += 'onClick="playSound(' + (sounds.length-1) + ')"/>'
-    retVal += '<input class="button" type="button" value="&#x25FC" id="' + name + '" '; 
-	  retVal += 'onClick="stopSound(' + (sounds.length-1) + ')"/>'
-    retVal += '<input class="button" type="button" value="&#x21BA" id="' + name + '" '; 
-	  retVal += 'onClick="toggleSound(' + (sounds.length-1) + ')"/>'
+    retVal += '<input class="button" type="button" value="&#x25B6" id="play_' + i + '" '; 
+	  retVal += 'onClick="playSound(' + i + ')"/>'
+    retVal += '<input class="button" type="button" value="&#x25FC" id="stop_' + i + '" '; 
+	  retVal += 'onClick="stopSound(' + i + ')"/>'
+    retVal += '<input class="button" type="button" value="&#x21BA" id="toggle_' + i + '" '; 
+	  retVal += 'onClick="toggleSound(' + i + ')"/>'
     retVal += '<br><br>';
     div.innerHTML = retVal;
 }
@@ -33,6 +34,8 @@ function stopSound(i) {
 }
 
 function toggleSound(i) {
+  color = sounds[i].isLooped() ? '#000000' : '#FF00FF';
+  document.getElementById('toggle_' + i).style.color = color; 
   sounds[i].setLoop(!sounds[i].isLooped());
 }
 
